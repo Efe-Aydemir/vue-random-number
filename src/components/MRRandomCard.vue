@@ -39,7 +39,6 @@ function easy() {
     islvllook.value = true
     eclick.value = true
     number.value = Math.floor(Math.random() * 11)
-        console.log(number.value)
 }
 
 function normal() {
@@ -47,7 +46,6 @@ function normal() {
     islvllook.value = true
     nclick.value = true
     number.value = Math.floor(Math.random() * 51)
-        console.log(number.value)
 }
 
 function hard() {
@@ -55,7 +53,6 @@ function hard() {
     islvllook.value = true
     hclick.value = true
     number.value = Math.floor(Math.random() * 101)
-        console.log(number.value)
 }
 
 function menu() {
@@ -75,16 +72,17 @@ function apply() {
         restext.value = 'Correct'
         corr.value = 'opacity-100 visible'
         invalue.value = ''
-        heart.value = 5
+        if (heart.value < 5) {
+            heart.value += 1
+        } else {
+            heart.value = 5
+        }
         if (eclick.value) {
         number.value = Math.floor(Math.random() * 11)
-        console.log(number.value)
     } else if (nclick.value) {
         number.value = Math.floor(Math.random() * 51)
-        console.log(number.value)
     } else if (hclick.value) {
         number.value = Math.floor(Math.random() * 101)
-        console.log(number.value)
     }
     } else {
         restext.value = 'False'
