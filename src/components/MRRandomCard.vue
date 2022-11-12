@@ -62,7 +62,7 @@ function menu() {
     nclick.value = false
     eclick.value = false
     hclick.value = false
-    
+    heart.value = 5
     invalue.value = ''
 }
 
