@@ -78,7 +78,6 @@ function easy() {
     islvllook.value = true
     eclick.value = true
     number.value = Math.floor(Math.random() * 11)
-    console.log(number.value)
 }
 
 function normal() {
@@ -120,7 +119,6 @@ function apply() {
         }
         if (eclick.value) {
         number.value = Math.floor(Math.random() * 11)
-    console.log(number.value)
 
     } else if (nclick.value) {
         number.value = Math.floor(Math.random() * 51)
