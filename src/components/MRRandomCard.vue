@@ -154,7 +154,7 @@ function apply() {
 
     setTimeout(() => {
         corr.value = 'opacity-0 invisible'
-    }, 700);
+    }, 900);
 }
 
 </script>
