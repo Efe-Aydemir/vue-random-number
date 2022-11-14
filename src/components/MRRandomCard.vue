@@ -108,7 +108,7 @@ function menu() {
 function apply() {
     
     if(invalue.value === number.value) {
-        restext.value = 'Correct'
+        restext.value = `Correct ${number.value}`
         coreect()
         corr.value = 'opacity-100 visible'
         invalue.value = ''
@@ -126,7 +126,16 @@ function apply() {
         number.value = Math.floor(Math.random() * 101)
     }
     } else {
-        restext.value = 'False'
+        if ((number.value - invalue.value) === 1) {
+            restext.value = 'False. Proximity level TOO HOT'
+        } else if ((number.value - invalue.value) === 2) {
+            restext.value = 'False. Proximity level HOT'
+        } else if ((number.value - invalue.value) === 3) {
+            restext.value = 'False. Proximity level lukewarm'
+        } else {
+            restext.value = 'False. Proximity level cool'
+        }
+        
         if (heart.value > 1) {
             falsee()
         } else {
