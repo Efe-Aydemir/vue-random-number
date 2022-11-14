@@ -2,16 +2,17 @@
     <div id="root" class="flex justify-center items-center pt-10">
         <div class="bg-white px-20 py-5 rounded-xl shadow-lg shadow-black flex flex-col">
             <div v-if="islvllook" class="flex flex-col text-center gap-5">
+                <h1 class="bg-red-600 p-2 rounded-full text-white">{{leveluy}}</h1>
                 <h1>Number</h1>
-                <input class="border-black text-2xl border-2 rounded-xl text-center mx-auto w-32" @keyup.enter="apply" type="number" v-model="invalue"/>
+                <input class="border-black text-2xl border-2 rounded-xl text-center mx-auto w-32" @keyup.enter="apply" type="number" v-model="invalue" :min="inputmin" :max="inputmax"/>
                 <button class="w-32 h-12 bg-black text-white rounded-xl mx-auto" @click="apply">Apply</button>
                 <button class="w-32 h-12 bg-black text-white rounded-xl mx-auto" @click="menu">Menu</button>
                 <pre>Heart {{heart}}</pre>
             </div>
             <div class="flex flex-col gap-5" v-if="islook">
-                <button class=" h-12 w-44 transition-all duration-300 bg-green-400 text-black rounded-xl hover:shadow-xl hover:shadow-green-800" @click="easy">easy level (0 to 10)</button>
-            <button class="w-44 h-12 bg-yellow-500 transition-all duration-300 text-black rounded-xl hover:shadow-xl hover:shadow-yellow-800" @click="normal">normal level (0 to 50)</button>
-            <button class="w-44 h-12 bg-red-700 text-white rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-red-900" @click="hard">hard level (0 to 100)</button>
+                <button class=" h-12 w-44 transition-all duration-300 bg-green-400 text-black rounded-xl hover:shadow-xl hover:shadow-green-800" @click="easy">Easy Level</button>
+            <button class="w-44 h-12 bg-yellow-500 transition-all duration-300 text-black rounded-xl hover:shadow-xl hover:shadow-yellow-800" @click="normal">Normal Level</button>
+            <button class="w-44 h-12 bg-red-700 text-white rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-red-900" @click="hard">Hard Level</button>
             </div>
             <div class="music flex flex-col items-center p-5">
                 <img v-if="musicview" @click="musicopen" src="@/assets/img/close.png" width="50" alt="Close" class="cursor-pointer"/>
@@ -41,6 +42,9 @@ let invalue = ref()
 let restext = ref('')
 let heart = ref(5)
 let musicview = ref(true)
+let inputmin = ref(0)
+let inputmax = ref(0)
+let leveluy = ref('')
 
 
 let audio = new Audio(music)
@@ -77,6 +81,9 @@ function easy() {
     islook.value = false
     islvllook.value = true
     eclick.value = true
+    inputmin.value = 0
+    inputmax.value = 10
+    leveluy.value = 'Easy level (0 to 10)'
     number.value = Math.floor(Math.random() * 11)
 }
 
@@ -84,6 +91,9 @@ function normal() {
     islook.value = false
     islvllook.value = true
     nclick.value = true
+    inputmin.value = 0
+    inputmax.value = 50
+    leveluy.value = 'Normal level (0 to 50)'
     number.value = Math.floor(Math.random() * 51)
 }
 
@@ -91,6 +101,9 @@ function hard() {
     islook.value = false
     islvllook.value = true
     hclick.value = true
+    inputmin.value = 0
+    inputmax.value = 100
+    leveluy.value = 'Hard level (0 to 100)'
     number.value = Math.floor(Math.random() * 101)
 }
 
